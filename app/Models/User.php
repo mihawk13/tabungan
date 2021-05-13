@@ -23,6 +23,16 @@ class User extends Authenticatable
         'level',
     ];
 
+    public function pegawai()
+    {
+        return $this->hasOne(Pegawai::class, 'user_id', 'id');
+    }
+
+    public function siswa()
+    {
+        return $this->hasOne(Siswa::class, 'user_id', 'id');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -15,9 +15,8 @@ class CreateTabunganTable extends Migration
     {
         Schema::create('tabungan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->date('tanggal');
-            $table->string('saldo');
+            $table->double('saldo');
+            $table->foreignId('siswa_id');
         });
     }
 

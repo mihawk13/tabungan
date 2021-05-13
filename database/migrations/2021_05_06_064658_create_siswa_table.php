@@ -20,7 +20,7 @@ class CreateSiswaTable extends Migration
             $table->string('jk');
             $table->string('nama_wali');
             $table->string('hp');
-            $table->string('kelas');
+            $table->foreignId('kelas_id');
             $table->foreignId('user_id');
         });
     }

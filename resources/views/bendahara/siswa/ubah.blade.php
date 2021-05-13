@@ -64,7 +64,7 @@
                                 <select name="kelas" class="form-control selectpicker" required>
                                     <option value="">--Pilih Kelas--</option>
                                     @foreach ($kelas as $kl)
-                                        <option @if($sw->kelas == $kl->kelas) selected @endif value="{{ $kl->id }}">{{ $kl->kelas }}</option>
+                                        <option @if($sw->kelas == $kl->id) selected @endif value="{{ $kl->id }}">{{ $kl->kelas }}</option>
                                     @endforeach
                                 </select>
                             </div>

@@ -50,15 +50,52 @@
                                         <td>{{ $pg->jk }}</td>
                                         <td>{{ $pg->hp }}</td>
                                         <td>{{ $pg->alamat }}</td>
-                                        <td>{{ $pg->user->level }}</td>
+                                        {{-- <td>{{ $pg->user->level }}</td> --}}
+                                        <td>{{ cekWaliKelas($pg->id) }}</td>
                                         <td>
                                             <center>
-                                                <button onclick="openLink({{ $pg->id }})" type="button" class="btn btn-warning btn-icon-anim btn-square btn-sm"
-                                                    data-toggle="tooltip" data-placement="left" title="Ubah Data Pegawai"><i
-                                                        class="fa fa-pencil"></i></button>
+                                                <button onclick="openLink({{ $pg->id }})" type="button"
+                                                    class="btn btn-warning btn-icon-anim btn-square btn-sm"
+                                                    data-toggle="tooltip" data-placement="left"
+                                                    title="Ubah Data Pegawai"><i class="fa fa-pencil"></i></button>
+                                                @if(cekWaliKelas($pg->id) == 0)
+                                                <button type="button"
+                                                    class="btn btn-danger btn-icon-anim btn-square btn-sm"
+                                                    data-toggle="modal" data-target="#modalhapus{{ $pg->id }}"
+                                                    data-placement="left" title="Hapus Data Pegawai"><i
+                                                        class="fa fa-trash"></i></button>
+                                                @endif
                                             </center>
                                         </td>
                                     </tr>
+                                    {{-- modal hapus --}}
+                                    <div id="modalhapus{{ $pg->id }}" class="modal" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Konfirmasi</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Apakah anda yakin menghapus {{ $pg->nama }} dari data pegawai
+                                                        ini?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $pg->user_id }}">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-dismiss="modal">Tidak</button>
+                                                        <button type="submit" class="btn btn-success">Ya</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- modal hapus --}}
                                     @endforeach
                                 </tbody>
                             </table>

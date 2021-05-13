@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Kelas;
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KelasController extends Controller
 {
@@ -27,7 +28,9 @@ class KelasController extends Controller
      */
     public function create()
     {
-        $pegawai = Pegawai::all();
+        $pegawai = DB::select("SELECT a.* FROM pegawai a
+        INNER JOIN users b ON a.user_id = b.id
+        WHERE b.level = 'Wali Kelas' AND a.id NOT IN (SELECT pegawai_id FROM kelas)");
         return view('bendahara.kelas.tambah', compact('pegawai'));
     }
 

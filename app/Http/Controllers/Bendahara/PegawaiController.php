@@ -76,4 +76,11 @@ class PegawaiController extends Controller
             return redirect()->back()->withInput()->with('gagal', $e->getMessage());
         }
     }
+
+    public function destroy(Request $req)
+    {
+        User::where('id', $req->id)->delete();
+        Pegawai::where('user_id', $req->id)->delete();
+        return redirect()->route('pegawai')->with('berhasil', 'Data pegawai berhasil dihapus!');
+    }
 }

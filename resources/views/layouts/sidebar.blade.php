@@ -20,12 +20,6 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('siswa') }}">
-                <div class="pull-left"><i class="fa fa-user mr-20"></i><span class="right-nav-text">Data Siswa</span></div>
-                <div class="clearfix"></div>
-            </a>
-        </li>
-        <li>
             <a href="{{ route('kelas') }}">
                 <div class="pull-left"><i class="fa fa-american-sign-language-interpreting mr-20"></i><span
                         class="right-nav-text">Data Kelas</span></div>
@@ -33,20 +27,31 @@
             </a>
         </li>
         <li>
-            <a href="/">
+            <a href="{{ route('siswa') }}">
+                <div class="pull-left"><i class="fa fa-user mr-20"></i><span class="right-nav-text">Data Siswa</span></div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('tabungan') }}">
                 <div class="pull-left"><i class="fa fa-money mr-20"></i><span class="right-nav-text">Data Tabungan</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
-            <a href="/">
+            <a href="{{ route('penarikan') }}">
                 <div class="pull-left"><i class="fa fa-cut mr-20"></i><span class="right-nav-text">Data Penarikan</span>
                 </div>
                 <div class="clearfix"></div>
             </a>
         </li>
-
-        {{-- <li>
+        <li>
+            <a href="{{ route('saldo') }}">
+                <div class="pull-left"><i class="fa fa-money mr-20"></i><span class="right-nav-text">Saldo</span></div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+        <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr">
                 <div class="pull-left"><i class="fa fa-file mr-20"></i><span class="right-nav-text">Laporan</span></div>
                 <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
@@ -54,69 +59,46 @@
             </a>
             <ul id="ecom_dr" class="collapse collapse-level-1">
                 <li>
-                    <a href="">Cuti</a>
+                    <a href="{{ route('lap.tabungan') }}">Tabungan</a>
                 </li>
                 <li>
-                    <a href="">Rekap Gaji</a>
-                </li>
-                <li>
-                    <a href="">Lembur</a>
-                </li>
-                <li>
-                    <a href="">Keterlambatan</a>
+                    <a href="{{ route('lap.penarikan') }}">Penarikan</a>
                 </li>
             </ul>
-        </li> --}}
+        </li>
         @endif
         @if (auth()->user()->level == 'Wali Kelas')
         <li>
-            <a href="{{ route('absensi.guru') }}">
+            <a href="{{ route('wali.tabungan') }}">
                 <div class="pull-left"><i class="fa fa-american-sign-language-interpreting mr-20"></i><span
-                        class="right-nav-text">Absensi</span></div>
+                        class="right-nav-text">Tabungan</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
-            <a href="{{ route('cuti.guru') }}">
-                <div class="pull-left"><i class="fa fa-sign-language mr-20"></i><span class="right-nav-text">Data
-                        Cuti</span></div>
+            <a href="{{ route('wali.penarikan') }}">
+                <div class="pull-left"><i class="fa fa-sign-language mr-20"></i><span class="right-nav-text">Penarikan</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
-            <a href="{{ route('gaji.guru') }}">
-                <div class="pull-left"><i class="fa fa-usd mr-20"></i><span class="right-nav-text">Data Gaji</span>
-                </div>
+            <a href="{{ route('wali.saldo') }}">
+                <div class="pull-left"><i class="fa fa-money mr-20"></i><span class="right-nav-text">Saldo</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         @endif
         @if (auth()->user()->level == 'Siswa')
         <li>
-            <a href="{{ route('kepsek.gaji') }}">
+            <a href="{{ route('siswa.tabungan') }}">
                 <div class="pull-left"><i class="fa fa-american-sign-language-interpreting mr-20"></i><span
-                        class="right-nav-text">Laporan Rekap Gaji</span></div>
+                        class="right-nav-text">Tabungan</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>
         <li>
-            <a href="{{ route('kepsek.cuti') }}">
-                <div class="pull-left"><i class="fa fa-sign-language mr-20"></i><span class="right-nav-text">Laporan
-                        Cuti</span></div>
-                <div class="clearfix"></div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('kepsek.lembur') }}">
-                <div class="pull-left"><i class="fa fa-usd mr-20"></i><span class="right-nav-text">Laporan Lembur</span>
-                </div>
-                <div class="clearfix"></div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('kepsek.terlambat') }}">
-                <div class="pull-left"><i class="fa fa-usd mr-20"></i><span class="right-nav-text">Laporan Keterlambatan</span>
-                </div>
+            <a href="{{ route('siswa.penarikan') }}">
+                <div class="pull-left"><i class="fa fa-sign-language mr-20"></i><span class="right-nav-text">Penarikan</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>

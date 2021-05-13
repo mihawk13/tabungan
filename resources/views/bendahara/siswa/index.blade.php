@@ -50,7 +50,7 @@
                                         <td>{{ $sw->jk }}</td>
                                         <td>{{ $sw->hp }}</td>
                                         <td>{{ $sw->alamat }}</td>
-                                        <td>{{ $sw->kelas }}</td>
+                                        <td>{{ $sw->kelas->kelas }}</td>
                                         <td>
                                             <center>
                                                 <button onclick="openLink({{ $sw->id }})" type="button" class="btn btn-warning btn-icon-anim btn-square btn-sm"

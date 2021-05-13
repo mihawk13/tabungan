@@ -15,10 +15,11 @@ class CreatePenarikanTable extends Migration
     {
         Schema::create('penarikan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tabungan_id');
             $table->date('tanggal');
-            $table->date('saldo_awal');
-            $table->date('jml_tarik');
+            $table->double('saldo_awal');
+            $table->double('jml_tarik');
+            $table->foreignId('tabungan_id');
+            $table->foreignId('user_id');
         });
     }
 

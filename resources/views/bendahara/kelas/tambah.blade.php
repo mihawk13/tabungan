@@ -41,15 +41,13 @@
                                 <select name="wali" class="form-control selectpicker" required>
                                     <option value="">--Pilih Wali Kelas--</option>
                                     @foreach ($pegawai as $pgw)
-                                    @if ($pgw->user->level == 'Wali Kelas')
                                     <option value="{{ $pgw->id }}">{{ $pgw->nama }}</option>
-                                    @endif
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10">Nama Kelas</label>
-                                <input type="number" class="form-control" name="kelas" placeholder="Masukkan Nama Kelas"
+                                <input type="text" class="form-control" name="kelas" placeholder="Masukkan Nama Kelas"
                                     required value="{{ old('kelas') }}">
                             </div>
                         </div>

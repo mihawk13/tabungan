@@ -41,14 +41,14 @@
                                     <option value="">--Pilih Wali Kelas--</option>
                                     @foreach ($pegawai as $pgw)
                                     @if ($pgw->user->level == 'Wali Kelas')
-                                    <option @if($kl->pegawai_id == $pgw->user_id) selected @endif value="{{ $pgw->id }}">{{ $pgw->nama }}</option>
+                                    <option @if($kl->pegawai_id == $pgw->id) selected @endif value="{{ $pgw->id }}">{{ $pgw->nama }}</option>
                                     @endif
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label class="control-label mb-10">Nama Kelas</label>
-                                <input type="number" class="form-control" name="kelas" placeholder="Masukkan Nama Kelas"
+                                <input type="text" class="form-control" name="kelas" placeholder="Masukkan Nama Kelas"
                                     required value="{{ $kl->kelas }}">
                             </div>
                         </div>

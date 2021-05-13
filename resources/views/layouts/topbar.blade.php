@@ -20,7 +20,7 @@
                         class="user-auth-img img-circle" /><span class="user-online-status"></span></a>
                 <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                     <li>
-                        <a><i class="zmdi zmdi-account"></i><span>{{ auth()->user()->nama }}</span></a>
+                        <a><i class="zmdi zmdi-account"></i><span>{{ auth()->user()->pegawai->nama ?? auth()->user()->siswa->nama }}</span></a>
                     </li>
                     <li class="divider"></li>
                     <li>
